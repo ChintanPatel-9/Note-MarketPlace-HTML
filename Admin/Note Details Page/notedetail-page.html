@@ -1,0 +1,210 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+    <title>Note Details Page</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Sticky Pages -->
+    <header class="site-header">
+          <div class="header-wrapper">
+            <div class="logo-wrapper">
+
+            <!-- Logo -->
+            <a href="#" title="Site Logo" class="navbar-brand">
+              <img src="img/logo.png" id="logo">
+            </a>
+
+            </div>
+
+            <!-- Main Menu bar -->
+            <div class="navigation-wrapper">
+              <nav class="main-nav">  
+                 <ul class="menu-navigation">
+                    <li>
+                      <a href="#">Search Notes</a>
+                    </li>
+                    <li>
+                      <a href="#">Sell Your Notes</a>
+                    </li>
+                    <li>
+                      <a href="#">FAQ's</a>
+                    </li>
+                    <li>
+                      <a href="#">Contact Us</a>
+                    </li>
+                    <li>
+                      <button id="login-button">Login</button>
+                    </li>
+                  </ul>     
+              </nav>
+            </div>
+
+          </div>
+    </header> 
+
+    <section id="nodedetail-line-01">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 heading">
+                    <h6>Notes Details</h6>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-5" id="note-img">
+                            <img src="images/notedetails/first.jpg" alt="Book-Image" class="img-responsive">
+                        </div>
+                        <div class="col-md-7" id="note-desc">
+                           <div id="note-desc-head">
+                               <h5>Computer Science</h5>
+                               <p>Sciences</p>
+                           </div>
+                           <div id="note-desc-content">
+                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur quo dolor dolores, vero ea. Quidem animi earum assumenda sequi placeat autem, ipsam, non excepturi iure, dolor nihil itaque debitis.</p>
+                           </div>
+                            <div id="down-button">
+                                <a class="btn" href="#" title="Download" role="button" data-toggle="modal" data-target="#Modal">Download / $15</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-5" id="note-info">
+                    <table class="table table-borderless note-table">
+                        <tbody>
+                            <tr>
+                                <td class="row-1">Institution:</td>
+                                <td class="row-2">University of California</td>
+                            </tr>
+                            <tr>
+                                <td class="row-1">Country:</td>
+                                <td class="row-2">United State</td>
+                            </tr>
+                            <tr>
+                                <td class="row-1">Course Name:</td>
+                                <td class="row-2">Computer Engineering</td>
+                            </tr>
+                            <tr>
+                                <td class="row-1">Course Code:</td>
+                                <td class="row-2">248750</td>
+                            </tr>
+                            <tr>
+                                <td class="row-1">Professor:</td>
+                                <td class="row-2">Mr. Richard Brown</td>
+                            </tr>
+                            <tr>
+                                <td class="row-1">Number of Pages:</td>
+                                <td class="row-2">277</td>
+                            </tr>
+                            <tr>
+                                <td class="row-1">Approved Date:</td>
+                                <td class="row-2">November 25 2020</td>
+                            </tr>
+                            <tr>
+                                <td class="row-1">Rating:</td>
+                                <td>
+                                    <div class="review-stars">
+                                        <div class="star-rating">
+                                                <label class="star star-1"></label>
+                                                <label class="star star-2"></label>
+                                                <label class="star star-3"></label>
+                                                <label class="star star-4"></label>
+                                                <label class="star star-5"></label>
+                                                <div class="star-review">
+                                                    <span>100 reviews</span>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>5 Users marked this note as inappropiate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-content-inner">
+                <div class="modal-header-img text-center">
+                    <img src="images/notedetails/SUCCESS.png" alt="success" class="img-responsive">
+                </div>
+                <div class="modal-header text-center">
+                    <h5 class="modal-title w-100" id="ModalLabel">Thank you for purchasing!</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="modal-bold">
+                        <p>Dear Smith,</p>
+                    </div>
+                    <div id="modal-normal">
+                        <p>As this is paid notes - you need to pay to seller Rahil Shah offline. We will send him an email that you want to download this note. He may contact you further for payment process completion.</p>
+                        <p>In case, you have urgency,<br>Please contact us on +9195377345959 .</p>
+                        <p>Once he receives the payment and acknowledge us - selected notes you can see over my downloads tab for downlod.</p>
+                        <p>Have a good day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer  -->
+    <footer>
+
+        <div class="container-fluid">
+  
+            <div class="row">
+                <div class="col-md-6" style="margin-left: 5%;">
+                    <p>
+                        Copyright &copy; Tatvasoft All rights reserved.</span>
+                    </p>
+                </div>
+                <div style="text-align: right; margin-right:5%; ">
+                  <a href="#"><i class="fa fa-facebook" ></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-google-plus"></i></a> 
+                </div>
+            </div>
+
+      </div>
+
+        <!-- Back To Top -->
+        <a href="#home" id="back-to-top" class="btn btn-sm btn-yellow btn-back-to-top smooth-scroll col-md-12 hidden-sm hidden-xs" title="home" role="button">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+    </footer>
+    <!-- Footer Ends -->
+
+        <!-- JQuery -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/style.js"></script>
+
+</body>
+</html>

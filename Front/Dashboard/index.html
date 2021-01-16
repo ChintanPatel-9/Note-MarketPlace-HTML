@@ -1,0 +1,459 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+    <title>Dashboard - Marketplace</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Sticky Pages -->
+    <header class="site-header">
+          <div class="header-wrapper">
+            <div class="logo-wrapper">
+
+            <!-- Logo -->
+            <a href="#" title="Site Logo" class="navbar-brand">
+              <img src="img/logo.png" id="logo">
+            </a>
+
+            </div>
+
+            <!-- Main Menu bar -->
+            <div class="navigation-wrapper">
+              <nav class="main-nav">  
+                 <ul class="menu-navigation">
+                    <li>
+               <a href="../Search Page/search-page.html" class="nav-link">Search Notes</a>
+            </li>
+          <li>
+              <a href="../Add Notes/index.html" class="nav-link">Sell Your Notes</a>
+            </li>
+            <li>
+              <a href="../FAQ's/index.html" class="nav-link">FAQ's</a>
+            </li>
+            <li>
+              <a href="../Contact Us/index.html" class="nav-link">Contact Us</a>
+            </li>
+            
+            <li>
+              <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="img/team-1.jpg" class="profile-img">
+              </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item dropdown-styles" href="../User Profile/index.html">My Profile</a>
+                    <a class="dropdown-item dropdown-styles" href="../My Downloads/index.html">My Downloads</a>
+                    <a class="dropdown-item dropdown-styles" href="../My Sold Notes/index.html">My Sold Notes</a>
+                    <a class="dropdown-item dropdown-styles" href="../My Rejected Notes/index.html">My Rejected Notes</a>
+                    <a class="dropdown-item dropdown-styles" href="../Change Password/index.html">Change Password</a>
+                    <a class="dropdown-item dropdown-styles" href="../Homepage/index.html">LOGOUT</a>
+                </div>
+            </div>
+
+
+            </li>
+            <li>
+              <a href="../Login Page/index.html">
+                <button id="login-button">Login</button>
+              </a>
+            </li>
+                  </ul>     
+              </nav>
+            </div>
+
+          </div>
+    </header> 
+    <!-- End Header -->
+
+    <br>
+    <!-- Dashboard - Brief-->
+    <section>
+        <div class="container top-content">
+          <div class="dash">
+            <span class="dashboard-content">Dashboard</span>
+            <button class="btn btn-note right-nav">ADD NOTE</button>
+          </div>
+        </div>
+    </section>
+    
+    <section id="dashboard-brief">
+        <div class="container">
+            
+            <div class="row" style="margin-left: 0.7%;">
+                
+                <table class="table table-bordered table-hover col-md-6 " style="width: 50%;">
+                  
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width:2%;padding: 2.5%;">
+                        <center>
+                        <img class="earning-img" src="img/dashboard-earning.png">
+                        <p class="content">My Earning</p>
+                        </center>
+                      </th>
+                      <th scope="col" style="width:10%">
+                        <div class="row">
+                            <div class="col-md-6">
+                              <center>
+                                <p class="content">100</p>
+                                <p>Number of Notes Sold</p>
+                              </center>
+                            </div>
+                            <div class="col-md-6">
+                              <center>
+                                <p class="content">$10,00,000</p>
+                                <p>Money Earned</p>
+                              </center>
+                            </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+
+              </table>
+
+              <table class="table table-bordered col-md-6" style="width: 15%; margin-left: 1%;">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 2%; padding: 8.5%;">
+                          <div>
+                            <center>
+                            <p class="content">38</p>
+                            <p>My Downloads</p>
+                            </center>
+                          </div>
+                      </th>
+                    </tr>
+                  </thead>
+              </table>
+
+              <table class="table table-bordered col-md-6" style="width: 15%; margin-left: 1%;">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 2%; padding: 8.5%;">
+                          <div>
+                            <center>
+                            <p class="content">38</p>
+                            <p>My Downloads</p>
+                            </center>
+                          </div>
+                      </th>
+                    </tr>
+                  </thead>
+              </table>
+
+              <table class="table table-bordered col-md-6" style="width: 15%; margin-left: 1%;">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 2%; padding: 8.5%;">
+                          <div>
+                            <center>
+                            <p class="content">38</p>
+                            <p>My Downloads</p>
+                            </center>
+                          </div>
+                      </th>
+                    </tr>
+                  </thead>
+              </table>
+
+          </div>
+
+        </div>
+        
+    </section>
+
+
+    <!-- In Progress Notes -->
+    <section>
+        <div class="container">
+          <div class="dash">
+            <span class="dashboard-content">In Progress Notes</span>
+            <div class="right-nav">
+                <form class="form-inline ml-auto" style="float: right;">
+
+              <div class="dropdown show">
+
+                <div class="md-form my-0" style="display: inline;">
+                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+
+                <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff;"><i class="fa fa-search"></i> Search</button>
+
+          </div>
+
+
+          </form>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+    <!-- In Progress Tables -->
+    <section id="in-progress-table">
+        <div class="container">
+            <div class="row" style="margin: 0.7%">
+                <table class="table table-bordered table-hover">
+                    
+                    <thead>
+                      
+                      <tr>
+                        <th scope="col" id="table-shape">ADDED DATE</th>
+                        <th scope="col" id="table-shape">TITLE</th>
+                        <th scope="col" id="table-shape">CATEGORY</th>
+                        <th scope="col" id="table-shape">STATUS</th>
+                        <th scope="col">ACTIONS</th>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/edit.png">
+                          <img src="img/delete.png">
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/edit.png">
+                          <img src="img/delete.png">
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/edit.png">
+                          <img src="img/delete.png">
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/edit.png">
+                          <img src="img/delete.png">
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/edit.png">
+                          <img src="img/delete.png">
+                        </td>
+                      </tr>
+
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+
+
+        <br>
+              <center>
+                <div>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">1</button></span>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">2</button></span>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">3</button></span>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">4</button></span>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">5</button></span>
+                </div>
+              </center>        
+
+    </section>
+
+
+<!-- Published Notes -->
+    <section>
+        <div class="container">
+          <div class="dash">
+            <span class="dashboard-content">Published Notes</span>
+            <div class="right-nav">
+                <form class="form-inline ml-auto" style="float: right;">
+
+              <div class="dropdown show">
+
+                <div class="md-form my-0" style="display: inline;">
+                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+
+                <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff;"><i class="fa fa-search"></i> Search</button>
+
+          </div>
+
+
+          </form>
+            </div>
+          </div>
+        </div>
+    </section>
+
+<!-- Published Tables -->
+    <section id="in-progress-table">
+        <div class="container">
+            <div class="row" style="margin: 0.7%">
+                <table class="table table-bordered table-hover">
+                    
+                    <thead>
+                      
+                      <tr>
+                        <th scope="col" id="table-shape">ADDED DATE</th>
+                        <th scope="col" id="table-shape">TITLE</th>
+                        <th scope="col" id="table-shape">CATEGORY</th>
+                        <th scope="col" id="table-shape">SELL TYPE</th>
+                        <th scope="col" id="table-shape">PRICE</th>
+                        <th scope="col">ACTIONS</th>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">150</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/eye.png">
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">150</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/eye.png">
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">150</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/eye.png">
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">150</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/eye.png">
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">150</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/eye.png">
+                        </td>
+                      </tr><tr>
+                        <td scope="col" id="table-shape">09-10-2020</td>
+                        <td scope="col" id="table-shape">Data Science</td>
+                        <td scope="col" id="table-shape">Science</td>
+                        <td scope="col" id="table-shape">150</td>
+                        <td scope="col" id="table-shape">Draft</td>
+                        <td scope="col">
+                          <img src="img/eye.png">
+                        </td>
+                      </tr>
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+
+        <br>
+              <center>
+                <div>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">1</button></span>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">2</button></span>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">3</button></span>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">4</button></span>
+                  <span><button type="button" class="btn btn-primary btn-circle btn-sm">5</button></span>
+                </div>
+              </center>
+
+    </section>
+
+
+
+    <!-- Footer  -->
+    <footer>
+
+        <div class="container-fluid">
+  
+            <div class="row">
+                <div class="col-md-6" style="margin-left: 5%;">
+                    <p>
+                        Copyright &copy; Tatvasoft All rights reserved.</span>
+                    </p>
+                </div>
+                <div style="text-align: right; margin-right:5%; ">
+                  <a href="#"><i class="fa fa-facebook" ></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-google-plus"></i></a> 
+                </div>
+            </div>
+
+      </div>
+
+        <!-- Back To Top -->
+        <a href="#home" id="back-to-top" class="btn btn-sm btn-yellow btn-back-to-top smooth-scroll col-md-12 hidden-sm hidden-xs" title="home" role="button">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+    </footer>
+    <!-- Footer Ends -->
+
+        <!-- JQuery -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/style.js"></script>
+
+</body>
+</html>
