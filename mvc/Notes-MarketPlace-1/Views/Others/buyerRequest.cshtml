@@ -1,0 +1,202 @@
+﻿@{
+    ViewBag.Title = "buyerRequest";
+    Layout = "~/Views/Others/buyer-request.cshtml";
+}
+<!-- Buyer Requests -->
+<section>
+    <div class="container top-content">
+        <div class="dash">
+            <span class="dashboard-content">Buyer Requests</span>
+            <div class="right-nav">
+                <input type="text" placeholder="Search" class="btn-search fa fa-search" style="height: 4.3%;">
+                <button class="btn btn-note">Search</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Buyer Requests Table -->
+<section id="buyer-requests-table">
+    <div class="container">
+        <div class="row" id="buyer-requests-table-margin">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" style="border-right: hidden;">SR NO.</th>
+                        <th scope="col" style="border-right: hidden;">NOTE TITLE</th>
+                        <th scope="col" style="border-right: hidden;">CATAGORY</th>
+                        <th scope="col" style="border-right: hidden;">BUYER</th>
+                        <th scope="col" style="border-right: hidden;">PHONE N0.</th>
+                        <th scope="col" style="border-right: hidden;">SELL TYPE</th>
+                        <th scope="col" style="border-right: hidden;">PRICE</th>
+                        <th scope="col" style="border-right: hidden;">DOWNLOADED DATE/TIME</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row" style="border-right: hidden;">1</th>
+                        <td class="text-color" style="border-right: hidden;">Data Science</td>
+                        <td style="border-right: hidden;">Science</td>
+                        <td style="border-right: hidden;">testing123@gmail.com</td>
+                        <td style="border-right: hidden;">+919875563527</td>
+                        <td style="border-right: hidden;">Paid</td>
+                        <td style="border-right: hidden;">$250</td>
+                        <td style="border-right: hidden;">27 Nov 2020, 11:24:34</td>
+                        <td class="dropdown">
+                            <a class="link-margin" href="#"><img src="images/eye.png"></a>
+                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false"><img src="images/dots.png"></a>
+                            <a class="dropdown-item dropdown-menu" aria-labelledby="dropdownMenuLink" href="#"
+                               style="text-align: center; font-family: Open Sans; font-size: 15px; font-weight: 400; line-height: normal; text-decoration: none; color: #333333;">
+                                Allow
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" style="border-right: hidden;">2</th>
+                        <td class="text-color" style="border-right: hidden;">Data Science</td>
+                        <td style="border-right: hidden;">Science</td>
+                        <td style="border-right: hidden;">testing123@gmail.com</td>
+                        <td style="border-right: hidden;">+919875563527</td>
+                        <td style="border-right: hidden;">Paid</td>
+                        <td style="border-right: hidden;">$250</td>
+                        <td style="border-right: hidden;">27 Nov 2020, 11:24:34</td>
+                        <td class="dropdown">
+                            <a class="link-margin" href="#"><img src="images/eye.png"></a>
+                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false"><img src="images/dots.png"></a>
+                            <a class="dropdown-item dropdown-menu" aria-labelledby="dropdownMenuLink" href="#"
+                               style="text-align: center; font-family: Open Sans; font-size: 15px; font-weight: 400; line-height: normal; text-decoration: none; color: #333333;">
+                                Allow
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" style="border-right: hidden;">3</th>
+                        <td class="text-color" style="border-right: hidden;">Data Science</td>
+                        <td style="border-right: hidden;">Science</td>
+                        <td style="border-right: hidden;">testing123@gmail.com</td>
+                        <td style="border-right: hidden;">+919875563527</td>
+                        <td style="border-right: hidden;">Paid</td>
+                        <td style="border-right: hidden;">$250</td>
+                        <td style="border-right: hidden;">27 Nov 2020, 11:24:34</td>
+                        <td class="dropdown">
+                            <a class="link-margin" href="#"><img src="images/eye.png"></a>
+                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false"><img src="images/dots.png"></a>
+                            <a class="dropdown-item dropdown-menu" aria-labelledby="dropdownMenuLink" href="#"
+                               style="text-align: center; font-family: Open Sans; font-size: 15px; font-weight: 400; line-height: normal; text-decoration: none; color: #333333;">
+                                Allow
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" style="border-right: hidden;">4</th>
+                        <td class="text-color" style="border-right: hidden;">Data Science</td>
+                        <td style="border-right: hidden;">Science</td>
+                        <td style="border-right: hidden;">testing123@gmail.com</td>
+                        <td style="border-right: hidden;">+919875563527</td>
+                        <td style="border-right: hidden;">Paid</td>
+                        <td style="border-right: hidden;">$250</td>
+                        <td style="border-right: hidden;">27 Nov 2020, 11:24:34</td>
+                        <td class="dropdown">
+                            <a class="link-margin" href="#"><img src="images/eye.png"></a>
+                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false"><img src="images/dots.png"></a>
+                            <a class="dropdown-item dropdown-menu" aria-labelledby="dropdownMenuLink" href="#"
+                               style="text-align: center; font-family: Open Sans; font-size: 15px; font-weight: 400; line-height: normal; text-decoration: none; color: #333333;">
+                                Allow
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" style="border-right: hidden;">5</th>
+                        <td class="text-color" style="border-right: hidden;">Data Science</td>
+                        <td style="border-right: hidden;">Science</td>
+                        <td style="border-right: hidden;">testing123@gmail.com</td>
+                        <td style="border-right: hidden;">+919875563527</td>
+                        <td style="border-right: hidden;">Paid</td>
+                        <td style="border-right: hidden;">$250</td>
+                        <td style="border-right: hidden;">27 Nov 2020, 11:24:34</td>
+                        <td class="dropdown">
+                            <a class="link-margin" href="#"><img src="images/eye.png"></a>
+                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false"><img src="images/dots.png"></a>
+                            <a class="dropdown-item dropdown-menu" aria-labelledby="dropdownMenuLink" href="#"
+                               style="text-align: center; font-family: Open Sans; font-size: 15px; font-weight: 400; line-height: normal; text-decoration: none; color: #333333;">
+                                Allow
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" style="border-right: hidden;">6</th>
+                        <td class="text-color" style="border-right: hidden;">Data Science</td>
+                        <td style="border-right: hidden;">Science</td>
+                        <td style="border-right: hidden;">testing123@gmail.com</td>
+                        <td style="border-right: hidden;">+919875563527</td>
+                        <td style="border-right: hidden;">Paid</td>
+                        <td style="border-right: hidden;">$250</td>
+                        <td style="border-right: hidden;">27 Nov 2020, 11:24:34</td>
+                        <td class="dropdown">
+                            <a class="link-margin" href="#"><img src="images/eye.png"></a>
+                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false"><img src="images/dots.png"></a>
+                            <a class="dropdown-item dropdown-menu" aria-labelledby="dropdownMenuLink" href="#"
+                               style="text-align: center; font-family: Open Sans; font-size: 15px; font-weight: 400; line-height: normal; text-decoration: none; color: #333333;">
+                                Allow
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" style="border-right: hidden;">7</th>
+                        <td class="text-color" style="border-right: hidden;">Data Science</td>
+                        <td style="border-right: hidden;">Science</td>
+                        <td style="border-right: hidden;">testing123@gmail.com</td>
+                        <td style="border-right: hidden;">+919875563527</td>
+                        <td style="border-right: hidden;">Paid</td>
+                        <td style="border-right: hidden;">$250</td>
+                        <td style="border-right: hidden;">27 Nov 2020, 11:24:34</td>
+                        <td class="dropdown">
+                            <a class="link-margin" href="#"><img src="images/eye.png"></a>
+                            <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false"><img src="images/dots.png"></a>
+                            <a class="dropdown-item dropdown-menu" aria-labelledby="dropdownMenuLink" href="#"
+                               style="text-align: center; font-family: Open Sans; font-size: 15px; font-weight: 400; line-height: normal; text-decoration: none; color: #333333;">
+                                Allow
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- </thead> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <center>
+        <div>
+            <span id="icon-margin-right"><a href="#"><img src="images/left-arrow.png" width="5" height="10"></a></span>
+            <span class="btn btn-primary btn-circle btn-sm">1</span>
+            <span class="btn btn-primary btn-circle btn-sm">2</span>
+            <span class="btn btn-primary btn-circle btn-sm">3</span>
+            <span id="icon-margin-left"><a href="#"><img src="images/right-arrow.png" width="5" height="10"></a></span>
+        </div>
+    </center>
+</section>
+<br>
+<hr>

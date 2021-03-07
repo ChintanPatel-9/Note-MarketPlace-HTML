@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap-theme.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" />
+    <link href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <body>
+
+        <!-- Sticky Pages -->
+        <header class="site-header">
+            <div class="header-wrapper">
+                <div class="logo-wrapper">
+
+                    <!-- Logo -->
+                    <a href="#" title="Site Logo" class="navbar-brand">
+                        <img src="~/img/logo.png" id="logo">
+                    </a>
+
+                </div>
+
+                <!-- Main Menu bar -->
+                <div class="navigation-wrapper">
+                    <nav class="main-nav">
+                        <ul class="menu-navigation">
+                            <li>
+                                <a href="#">Search Notes</a>
+                            </li>
+                            <li>
+                                <a href="#">Sell Your Notes</a>
+                            </li>
+                            <li>
+                                <a href="#">FAQ's</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#">
+
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="~/img/team-1.jpg" class="profile-img">
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#" style="padding: 5%;border: 1px solid;width: 100%;">My Profile</a>
+                                            <a class="dropdown-item" href="#" style="padding: 5%;border: 1px solid;width: 100%;">My Download</a>
+                                            <a class="dropdown-item" href="#" style="padding: 5%;border: 1px solid;width: 100%;">
+                                                My Sold
+                                                Notes
+                                            </a>
+                                            <a class="dropdown-item" href="#" style="padding: 5%;border: 1px solid;width: 100%;">
+                                                My Rejected
+                                                Notes
+                                            </a>
+                                            <a class="dropdown-item" href="#" style="padding: 5%;border: 1px solid;width: 100%;">
+                                                Change
+                                                Password
+                                            </a>
+                                            <a class="dropdown-item" href="#"
+                                               style="padding: 5%;border: 1px solid;width: 100%; color: #6255a5;">LOGOUT</a>
+                                        </div>
+                                </a>
+                            </li>
+                            <li>
+                                <button id="logout-button">Logout</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </header>
+        <!-- End Header -->
+        <br /><br />
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+           
+            
+            <footer>
+                <div style="text-align: left;display: inline-block;width: 49%;">Copyright ©  @DateTime.Now.Year Tatvasoft - All rights reserved.</div>
+               
+                <div style="text-align: right;display: inline-block;width: 49%;">
+                    <a href="#!" role="button">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#!" role="button">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#!" role="button">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    
+                </div>
+            </footer>
+
+
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<html>
+
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/bootstrap-theme.min.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.css" />
+        <link href="~/Content/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+    </head>
+    
+     <body id="background-img-login">
+                <br /><br /><br /><br />
+                <!-- Login -->
+                <div class="login-box">
+                    <img id="img-1" src="~/img/top-logo.png">
+                    <div class="centerdiv">
+                        <h1 id="header-1">Login</h1>
+                        <h5 id="text-1">Enter your email address and password to login</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <a href="#">Forgot Password?</a>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn login-btn">LOGIN</button>
+                            <div class="signup-link">
+                                Don't have an account? <a href="#">Sign Up</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+      </body>
+
+</html>

@@ -1,0 +1,46 @@
+﻿
+
+<div class="table">
+    <table class="table table-bordered table-hover">
+        
+        <thead>
+            <tr>
+                @{ 
+                    foreach (var a in tb)
+                    {
+                         <th>
+                             @a
+                         </th>                      
+                    }
+                }
+            </tr>
+        </thead>
+    
+        <tbody>
+            
+                @{
+
+                    if (Model != null)
+                    {
+                        foreach (var Data in Model)
+                        {
+                            <tr>
+                                <td>@Data.ID</td>
+                                <td>@Data.Name</td>
+                                <td>@Data.CountryCode</td>
+                                <td>@Data.CreatedDate</td>
+                                <td>@Data.CreatedBy</td>
+                                <td>@Data.ModifiedDate</td>
+                                <td>@Data.ModifiedBy</td>
+                                <td>@Data.IsActive</td>
+                            </tr>
+                        }
+
+                    }
+
+                }
+
+        </tbody>
+ 
+    </table>
+ </div>
