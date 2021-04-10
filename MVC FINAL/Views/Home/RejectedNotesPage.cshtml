@@ -1,0 +1,95 @@
+﻿@model dynamic
+@{ ViewBag.Title = "Rejected Notes";
+    ViewBag.Role = 2;
+    Layout = "~/Views/Shared/Register.cshtml"; }
+
+@{ IEnumerable<User> user = ViewData["userdetails"] as IEnumerable<User>;
+    IEnumerable<NotesDetail> note = ViewData["notedetails"] as IEnumerable<NotesDetail>;
+   }
+
+<section id="dashboard-second-section">
+    <br /><br /><br /><br /><br /><br />
+    <div class="container">
+        <form class="form-inline ml-auto">
+
+            <div class="dash">
+                <span class="dashboard-content">Rejected Notes</span>
+            </div>
+            <br />
+            <div class="md-form my-0" style="float:right">
+                <input name="search_progress" style="width:auto;" value="@Request.QueryString["search_progress"]" aria-describedby="null" class="abcd form-control search-bar InputEmail1" placeholder="Search">
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+
+                <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff; width:auto;"><i class="fa fa-search"></i> Search</button>
+
+            </div>
+
+        </form>
+
+
+        <div class="row">
+            <br /><br />
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table table-bordered table-hover ">
+                        <thead>
+                            <tr style="cursor:default">
+
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">NOTE TITLE</th>
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">CATEGORY</th>
+                                
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">SELLER</th>
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">DATE ADDED</th>
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">REJECTED BY</th>
+                                <th style="text-align:center" ; scope="col" class="align-middle">REMARKS</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @foreach (NotesDetail _notesDetail in note)
+                            {
+                            <tr>
+                                <td class="align-middle" style="text-align:center" id="table-shape">@_notesDetail.Title</td>
+                                <td class="align-middle" style="text-align:center" id="table-shape">@_notesDetail.Category</td>
+
+                                @{ 
+                                    foreach (User _user in user)
+                                    {
+                                        if (_user.P_K_User == _notesDetail.F_K_User)
+                                        {
+                                            <td class="align-middle" style="text-align:center" id="table-shape">@_user.FirstName @_user.LastName</td>
+                                        }
+                                    }
+                                }
+
+                                <td class="align-middle" style="text-align:center" id="table-shape">@_notesDetail.CreatedDate</td>
+                                <td class="align-middle" style="text-align:center" id="table-shape">Patel</td>
+                                <td class="align-middle" style="text-align:center">
+                                    @_notesDetail.Remark
+                                    <div class="dropdown d-inline">
+                                        <span class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="~/images/dots.png" / style="margin-left:10%;width:auto;height:auto;">
+                                        </span>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="@Url.Action("Approve","Home",new { noteid = _notesDetail.P_K_Note})">Approve</a><br />
+                                            <a class="dropdown-item" href="@Url.Action("DownloadedNotesPage","Home")">Download Notes</a><br />
+                                            <a class="dropdown-item" href="@Url.Action("NoteDetails","Home",new { noteid = _notesDetail.P_K_Note, SellPrice = _notesDetail.SellPrice})">View More Details</a><br />
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+
+
+                                </ tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

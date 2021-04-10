@@ -1,0 +1,25 @@
+﻿@model NotesMarketplace.ManageCTC
+@{ ViewBag.Title = "Manage Category";
+    ViewBag.Role = 2;
+    Layout = "~/Views/Shared/Register.cshtml"; }
+
+<br /><br /><br /><br /><br /><br />
+<div class="container">
+<h3 style="color:#6255a5">Are you sure you want to delete this?</h3>
+<div>
+    <br />
+    <h4 style="color:#6255a5">Delete Category</h4>
+    <hr />
+    
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+    <br />
+</div>
+</div>

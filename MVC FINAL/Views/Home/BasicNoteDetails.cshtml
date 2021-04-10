@@ -1,0 +1,171 @@
+﻿@model IEnumerable<NotesMarketplace.NotesDetail>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.P_K_Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F_K_User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F_K_NoteStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPicture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoteAttachment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoteType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfPages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotesDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstitutionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Professor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SellPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotePreview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoteSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_K_Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F_K_User)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F_K_NoteStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPicture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoteAttachment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoteType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfPages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotesDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstitutionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Professor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SellPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotePreview)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoteSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

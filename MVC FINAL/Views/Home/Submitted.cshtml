@@ -1,0 +1,90 @@
+﻿@model IPagedList<NotesMarketplace.NotesDetail>
+@using PagedList
+@using PagedList.Mvc
+<section id="dashboard-third-section">
+    <div class="container">
+
+        <form class="form-inline ml-auto">
+
+            <div class="dash">
+                <span class="dashboard-content">Published Notes</span>
+            </div>
+
+            <div class="md-form my-0" style="float:right">
+                <input name="search_progress_2" value="@Request.QueryString["search_progress_2"]" aria-describedby="null" class="abcd form-control search-bar InputEmail1" placeholder="Search">
+                <input type="hidden" name="field_2" value="@Request.QueryString["field_2"]" />
+
+                
+                <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff; width:auto;"><i class="fa fa-search"></i> Search</button>
+
+            </div>
+
+        </form>
+
+       
+        <div class="row">
+            <br /><br />
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr style="cursor:default">
+
+                                <th scope="col" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("Dashboard", "Home", new { field_2 = "datetime", search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"] ,search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"]}) + "'");">ADDED DATE</th>
+                                <th scope="col" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("Dashboard", "Home", new { field_2 = "title", search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"],search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"] }) + "'");">TITLE</th>
+                                <th scope="col" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("Dashboard", "Home", new { field_2 = "category", search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"],search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"] }) + "'");">CATEGORY</th>
+                                <th scope="col" id="table-shape" class="align-middle">SELL TYPE</th>
+                                <th scope="col" id="table-shape" class="align-middle">PRICE</th>
+                                <th scope="col" class="align-middle">ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count() == 0)
+                            {
+                <tr> <td colspan="5" class="align-middle"> Records not found </td></tr>}
+                            @{ foreach (var mynotes in Model)
+                                            {
+                                                var getlist_code2 = ViewBag.status as IEnumerable<NotesMarketplace.NotesStatu>;
+                                <tr style="cursor:default">
+                                    <td id="table-shape" class="align-middle">@mynotes.CreatedDate.Value.ToShortDateString()</td>
+                                    <td id="table-shape" class="align-middle">@mynotes.Title</td>
+                                    <td id="table-shape" class="align-middle">@mynotes.Category</td>
+                                    @if (mynotes.SellPrice != 0)
+                                    {
+                    <td id="table-shape" class="align-middle">Paid</td> }
+                                    else
+                                    {
+                    <td id="table-shape" class="align-middle">Free</td>}
+                                    <td  id="table-shape" class="align-middle">$@mynotes.SellPrice</td>
+                                    <td class="align-middle">
+                                        <div class="row text-center">
+                                            <div class="col-11 col-sm-11 col-md-9 col-lg-7 dopointer">
+                                                <img src="~/Content/images/Dashboard/eye.png" alt="Edit" class="img-fluid dopointer" onclick="@("window.location.href='" + @Url.Action("NoteDetails","Home",new {noteid=mynotes.P_K_Note})+"'");">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr> } }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Pagination -->
+<section id="pagination">
+    <center>
+        @Html.PagedListPager(Model, pageindex_2 => Url.Action("Dashboard", "Home", new { pageindex_2, field_2 = Request.QueryString["field_2"], search_progress_2 = Request.QueryString["search_progress_2"], field = Request.QueryString["field"], search_progress = Request.QueryString["search_progress"] }), new PagedList.Mvc.PagedListRenderOptions
+        {
+            ContainerDivClasses = null,
+            LiElementClasses = new string[] { "page-item1" },
+            UlElementClasses = new string[] { "pagination justify-content-center" },
+            LinkToNextPageFormat = "<i class='fa fa-chevron-right'></i>",
+            LinkToPreviousPageFormat = "<i class='fa fa-chevron-left'></i>",
+            MaximumPageNumbersToDisplay = 5,
+            DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+            DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+            DisplayLinkToLastPage = PagedListDisplayMode.Never
+
+        })
+    </center>
+</section>

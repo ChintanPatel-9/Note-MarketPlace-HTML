@@ -1,0 +1,73 @@
+﻿@model NotesMarketplace.User
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/Member.cshtml";
+}
+
+<!-- Login Form -->
+<section id="my-background">
+    <img alt="Marketplace" id="login-back" src="~/img/banner-with-overlay-login.jpg">
+    <!-- Login -->
+    <div class="login-box">
+        <img id="img-1" src="~/img/top-logo.png">
+        <div class="centerdiv">
+            <h1 id="header-1">Login</h1>
+            <h5 id="text-1">Enter your email address and password to login</h5>
+            <form method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control InputEmail1", @placeholder = "Enter your Email Address", @maxlength = "100" })
+                    @Html.ValidationMessageFor(m => m.EmailId)
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                Password
+                                @Html.ActionLink("ForgotPassword?", "ForgotPassword", "Home", null, new { @class = "" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eye icon -->
+                    <div class="wrapper">
+                        @{ if (ViewBag.isauth == "no")
+                            {
+                @Html.TextBoxFor(m => m.Password, new { @class = "InputPassword form-control InputEmail1 InputPassword1 pe1", @placeholder = "Enter your password", @type = "password", @maxlength = "24", @minlength = "6" }) }
+
+            else
+
+            {
+@Html.TextBoxFor(m => m.Password, new { @class = "form-control InputEmail1 InputPassword1 pe1", @placeholder = "Enter your password", @type = "password", @maxlength = "24", @minlength = "6" }) } }
+
+                        
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Password)
+                    <!-- Error MSG -->
+
+                    <div class="errormsg">
+                        <p>@ViewBag.isauth</p>
+                    </div>
+
+                </div>
+
+                <div class="form-group form-check">
+                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input exampleCheck" })
+
+                    <label class="form-check-label">Remember me</label>
+                </div>
+                <center>
+                    <button type="submit" class="btn" style="background-color:#6255a5; color:white;">LOGIN</button>
+                </center>
+
+                <div class="signup-link">
+                    <p class="text-center mytext">Don't have an account? <span>@Html.ActionLink("Sign Up", "SignUp")</span></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>

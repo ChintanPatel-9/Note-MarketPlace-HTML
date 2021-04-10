@@ -1,0 +1,135 @@
+﻿@model IPagedList<NotesMarketplace.NotesDetail>
+@using PagedList
+@using PagedList.Mvc
+@{ 
+    var ndo = ViewBag.ndo;
+}
+<section id="dashboard-second-section">
+    <div class="container">
+        <form class="form-inline ml-auto">
+
+            <div class="dash">
+                <span class="dashboard-content">Published Notes</span>
+            </div>
+            <br />
+            <div class="md-form my-0" style="float:right">
+                <input name="search_progress" style="width:auto;" value="@Request.QueryString["search_progress"]" aria-describedby="null" class="abcd form-control search-bar InputEmail1" placeholder="Search">
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+
+                <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff; width:auto;"><i class="fa fa-search"></i> Search</button>
+
+            </div>
+
+        </form>
+
+
+        <div class="row">
+            <br /><br />
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table table-bordered table-hover ">
+                        <thead>
+                            <tr style="cursor:default">
+
+                                <th scope="col" style="text-align:center;" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Home", new { field = "datetime",search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"], search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"]}) + "'");">TITLE</th>
+                                <th scope="col" style="text-align:center;" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Home", new { field = "title",search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"], search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"] }) + "'");">CATEGORY</th>
+                                <th scope="col" style="text-align:center;" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Home", new { field = "category" ,search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"], search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"]}) + "'");">ATTACHMENT SIZE</th>
+
+                                <th scope="col" style="text-align:center;" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Home", new { field = "title",search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"], search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"] }) + "'");">SELL TYPE</th>
+                                <th scope="col" style="text-align:center;" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Home", new { field = "status" ,search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"], search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"]}) + "'");">PRICE</th>
+                                <th scope="col" style="text-align:center;" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Home", new { field = "title",search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"], search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"] }) + "'");">PUBLISHER</th>
+                                <th scope="col" style="text-align:center;" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Home", new { field = "category" ,search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"], search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"]}) + "'");">PUBLISHED DATE</th>
+                                <th scope="col" style="text-align:center;" class="align-middle" onclick="@("window.location.href='" + @Url.Action("AdminDashboard", "Home", new { field = "category" ,search_progress=Request.QueryString["search_progress"],pageindex=Request.QueryString["pageindex"], search_progress_2 = Request.QueryString["search_progress_2"], pageindex_2 = Request.QueryString["pageindex_2"]}) + "'");">NO. OF DOWNLOADS</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count() == 0)
+                            {
+                                <tr> <td colspan="5" class="align-middle"> Records not found </td></tr>
+                            }
+                            
+                            @{ foreach (var mynotes in Model)
+                                {
+                                    var getlist_code = ViewBag.status as IEnumerable<NotesMarketplace.NotesStatu>;
+
+                                                        <tr style="cursor:default">
+
+                                                          
+                                                            <td class="align-middle" id="table-shape" style="text-align:center;">@mynotes.Title</td>
+
+                                                            <td class="align-middle" id="table-shape" style="text-align:center;">@mynotes.Category</td>
+
+                                                            <td class="align-middle" id="table-shape" style="text-align:center;">@mynotes.NoteSize KBytes</td>
+
+                                                            @{ if (mynotes.SellPrice == 0)
+                                                                {
+                                                                    <td class="align-middle" id="table-shape" style="text-align:center;">Free</td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td class="align-middle" id="table-shape" style="text-align:center;">Paid</td>
+                                                                }
+                                                            }
+                                                            <td class="align-middle" id="table-shape" style="text-align:center;">@mynotes.SellPrice</td>
+
+                                                            <td class="align-middle" id="table-shape" style="text-align:center;">@mynotes.User.FirstName @mynotes.User.LastName</td>
+
+                                                            <td class="align-middle" id="table-shape" style="text-align:center;">@mynotes.CreatedDate</td>
+                                                           
+                                                            <td class="align-middle d-inline" style="text-align:center;">
+
+                                                                <div class="d-inline">
+                                                                    @mynotes.User.DownloadedNotes.Where(m => m.F_K_Note == mynotes.P_K_Note).Count()
+                                                                </div>
+
+                                                                <div class="dropdown d-inline">
+                                                                    <span class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <img src="~/images/dots.png" / style="margin-left:10%;width:auto;height:auto;">
+                                                                    </span>
+                                                                    
+                                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                        
+                                                                        <a class="dropdown-item" href="@Url.Action("DownloadedNotesPage","Home")">Download Notes</a><br />
+                                                                        <a class="dropdown-item" href="@Url.Action("NoteDetails","Home",new { noteid = mynotes.P_K_Note, SellPrice = mynotes.SellPrice})">View More Details</a><br />
+                                                                        <a class="dropdown-item" href="@Url.Action("UnPublish","Home",new { noteid = mynotes.P_K_Note})">UnPublish</a>
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </td>
+
+
+                                                        </tr> 
+                    } }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Pagination -->
+<section id="pagination">
+
+    <center>
+
+        @Html.PagedListPager(Model, pageindex => Url.Action("AdminDashboard", "Home", new { pageindex, field = Request.QueryString["field"], search_progress = Request.QueryString["search_progress"], field_2 = Request.QueryString["field_2"], search_progress_2 = Request.QueryString["search_progress_2"] }), new PagedList.Mvc.PagedListRenderOptions
+        {
+            ContainerDivClasses = null,
+            LiElementClasses = new string[] { "page-item1" },
+            UlElementClasses = new string[] { "pagination justify-content-center" },
+            LinkToNextPageFormat = "<i class='fa fa-chevron-right'></i>",
+            LinkToPreviousPageFormat = "<i class='fa fa-chevron-left'></i>",
+            MaximumPageNumbersToDisplay = 5,
+            DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+            DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+            DisplayLinkToLastPage = PagedListDisplayMode.Never
+
+        }
+
+                           )
+
+    </center>
+
+</section>

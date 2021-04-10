@@ -1,0 +1,81 @@
+﻿
+
+@model dynamic
+@{ ViewBag.Title = "Manage Category";
+    ViewBag.Role = 2;
+    Layout = "~/Views/Shared/Register.cshtml"; }
+
+@{ IEnumerable<ManageCTC> categories = ViewData["categorydetails"] as IEnumerable<ManageCTC>;}
+
+<section id="dashboard-second-section">
+    <br /><br /><br /><br /><br /><br />
+    <div class="container">
+        <form class="form-inline ml-auto">
+
+            <div class="dash">
+                <span class="dashboard-content">Manage Category</span>
+            </div>
+            <br />
+            <div class="md-form my-0" style="float:right">
+                <input name="search_progress" style="width:auto;" value="@Request.QueryString["search_progress"]" aria-describedby="null" class="abcd form-control search-bar InputEmail1" placeholder="Search">
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+
+                <a href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff; width:auto;"><i class="fa fa-search"></i> Search</a>
+
+            </div>
+
+            <br /><br />
+            <div>
+                <a href="@Url.Action("AddCategoryPage","Home")" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff; width:auto;"> Add Category</a>
+            </div>
+
+        </form>
+
+
+        <div class="row">
+            <br /><br />
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table table-bordered table-hover ">
+                        <thead>
+                            <tr style="cursor:default">
+
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">CATEGORY</th>
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">DISCRIPTION</th>
+
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">DATE ADDED</th>
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">ADDED BY</th>
+                                <th style="text-align:center" ; scope="col" id="table-shape" class="align-middle">ACTIVE</th>
+                                <th style="text-align:center" ; scope="col" class="align-middle">ACTION</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @foreach (ManageCTC _category in categories)
+                            {
+                                <tr>
+                                    <td class="align-middle" style="text-align:center" id="table-shape">@_category.Value</td>
+                                    <td class="align-middle" style="text-align:center" id="table-shape">@_category.Description</td>
+                                  
+                                  
+                                    <td class="align-middle" style="text-align:center" id="table-shape">@_category.CreatedDate</td>
+                                    <td class="align-middle" style="text-align:center" id="table-shape">@_category.ModifiedBy</td>
+                                    <td class="align-middle" style="text-align:center" id="table-shape">@_category.IsActive</td>
+                                    <td class="align-middle" style="text-align:center">
+                                        <a href="@Url.Action("UpdateCategory","Home",new { uid = _category.ID})"><img src="~/img/edit.png" /></a>
+                                        <a href="@Url.Action("DeleteCategory","Home",new { uid = _category.ID})"><img src="~/images/delete.png" /></a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                            </ tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

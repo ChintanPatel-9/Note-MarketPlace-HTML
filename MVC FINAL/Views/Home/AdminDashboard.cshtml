@@ -1,0 +1,96 @@
+﻿@model IPagedList<NotesMarketplace.NotesDetail>
+@using PagedList
+@using PagedList.Mvc
+@{ ViewBag.Title = "Admin Dashboard";
+    ViewBag.Role = 2;
+    Layout = "~/Views/Shared/Register.cshtml"; }
+
+
+<!-- Dashboard - Brief-->
+<section>
+    <div class="container" style="z-index: 999;">
+
+        <br />
+        <!-- dashboard heading & add note button -->
+        <div class="container top-content box">
+            <div class="dash">
+                <span class="dashboard-content">Dashboard</span>
+                <button class="btn btn-note right-nav" style="width:auto" onclick="@("window.location.href='" + @Url.Action("AddNotes", "Home") + "'");">ADD NOTE</button>
+            </div>
+        </div>
+
+</section>
+
+
+@{ Statistic mystatistics = ViewBag.statistic; }
+<!-- Dashboard content -->
+<div class="dashboar-content">
+    <div class="row">
+
+        <div class="container">
+
+            <div class="row" style="margin-left: 0.7%;">
+
+
+
+                <table class="table table-bordered col-md-6" style="width: 32%; margin-left: 1%;">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 2%; padding: 8.5%;">
+                                <div>
+                                    <center>
+                                        <h4><b>@mystatistics.UnderReviewNotes</b></h4>
+                                        <p>Numbers of Notes in Review for Publish</p><br />
+                                    </center>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+
+                <table class="table table-bordered col-md-6" style="width: 32%; margin-left: 1%;">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 2%; padding: 8.5%;">
+                                <div>
+                                    <center>
+                                        <h4><b>@mystatistics.DownloadedNotes</b></h4>
+                                        <p>Numbers of New Notes Downloaded (Last 7 days)</p>
+                                    </center>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+
+                <table class="table table-bordered col-md-6" style="width: 32%; margin-left: 1%;">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 2%; padding: 8.5%;">
+                                <div>
+                                    <center>
+                                        <h4><b>20</b></h4>
+                                        <p>Numbers of New registrations (Last 7 days)</p><br />
+                                    </center>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+<br>
+
+@{ Html.RenderAction("AdminInProgress", "Home"); }
+
+

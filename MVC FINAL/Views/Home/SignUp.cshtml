@@ -1,0 +1,74 @@
+﻿@model NotesMarketplace.User
+
+@{ 
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/Member.cshtml";
+}
+
+    <!-- Sign Up Form -->
+<section id="my-background">
+    <img alt="Marketplace" id="login-back" src="~/img/banner-with-overlay-login.jpg">
+    <br /><br /><br /><br />
+    <div class="container">
+
+        <!-- Login -->
+        <div class="login-box">
+            <img id="img-1" src="~/img/top-logo.png">
+            <div class="centerdiv">
+                <h1 id="header-1">Create an Account</h1>
+                <h5 id="text-1">Enter your details to Signup</h5>
+
+                <div class="text-center text2 accountflage">
+                    @{ if (ViewBag.flag == "Exits")
+                        {
+
+            <p><span><i class="fa fa-check-circle"></i> Your account has been successfully created.</span></p> ViewBag.flag = null;
+
+        } }
+                </div>
+
+                <form method="post" name="Registration">
+                    <div class="form-group">
+                        <label for="" exampleInputFirstName>First Name*</label>
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control InputEmail1", @placeholder = "Enter your First Name", @maxlength = "50" })
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" exampleInputLastName>Last Name*</label>
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control InputEmail1", @placeholder = "Enter your Last Name", @maxlength = "50" })
+                        @Html.ValidationMessageFor(m => m.LastName)
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address*</label>
+                        @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control InputEmail1", @placeholder = "Enter your Email Address", @maxlength = "100" })
+                        @Html.ValidationMessageFor(m => m.EmailId)
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password*</label>
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control InputEmail1 InputPassword1 pe1", @placeholder = "Enter your password", @type = "password", @maxlength = "24", @minlength = "6" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Confirm Password*</label>
+                        @Html.TextBoxFor(m => m.Password2, new { @class = "form-control InputEmail1 InputPassword1 pe2", @placeholder = "Re-enter your password", @type = "password", @maxlength = "24", @minlength = "6" })
+                        @Html.ValidationMessageFor(m => m.Password2)
+                    </div>
+
+                    <button class="btn" style="background-color:#6255a5; color:white;">SIGN UP</button>
+
+                    <p class="text-center mytext">Already have an account? <span>@Html.ActionLink("Log In", "LogIn")</span></p>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</section>
+    <!-- Sign Up Form End -->

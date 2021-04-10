@@ -1,0 +1,52 @@
+﻿@model NotesMarketplace.ManageCTC
+
+@{ ViewBag.Title = "Add Category";
+    if (ViewBag.IsValid == "true")
+    {
+        ViewBag.Role = 2;
+        Layout = "~/Views/Shared/Register.cshtml";
+        ViewBag.IsValid = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/Non_Register.cshtml";
+    } }
+
+
+<section>
+    <!-- First Section -->
+    <section>
+        <br /><br /><br />
+        <div id="user-profile-img">
+
+            <div>
+                <img src="~/img/banner-with-overlay.jpg" class="banner" style="height:300px">
+                <p class="content-img" style="top:35%">Add Category</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <br />
+        <form method="post" name="Registration" class="user-details-form">
+            <div class="form-group">
+                <label for="" exampleInputFirstName>Category Name *</label>
+                @Html.TextBoxFor(m => m.Value, new { @class = "form-control InputEmail1", @placeholder = "Enter Category Nama", @maxlength = "50" })
+                @Html.ValidationMessageFor(m => m.Value)
+            </div>
+
+            <div class="form-group">
+                <label for="" exampleInputLastName>Description *</label>
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control InputEmail1", @placeholder = "Enter Description", @maxlength = "50" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+
+            
+            <button class="btn" style="background-color:#6255a5; color:white;width:auto">ADD CATEGORY</button>
+
+        </form>
+        <br />
+    </div>
+
+
+</section>

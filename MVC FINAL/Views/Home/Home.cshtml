@@ -1,0 +1,194 @@
+﻿@{ 
+    ViewBag.Title = "Home";
+                if (ViewBag.IsValid == "true")
+                {
+                    Layout = "~/Views/Shared/Register.cshtml";
+                }
+                else
+                {
+                    Layout = "~/Views/Shared/Non_Register.cshtml";
+                } 
+}
+
+<!-- Home -->
+<section id="home">
+
+    <div class="home-content box">
+        <div class="row">
+
+            <!-- Home Background Image -->
+            <img alt="Marketplace" class="image-back" src="~/Content/images/home/banner-with-overlay.jpg">
+
+            <!-- Home Content -->
+            <div class="home-text">
+                <p class="bold-high">Download Free/Paid Notes</p>
+                <p class="bold-high">or Sale your Book</p><br>
+                <p class="bold-low">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p><br>
+                <button class="btn btn-learn">
+                    <a href="@Url.Action("FAQ","Home")"><b>Learn More</b></a>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- About -->
+<section id="about">
+
+    <div class="content-box-sm">
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-sm-4 aboutleft">
+                    <p>About</p>
+                    <p>NotesMarketPlace</p>
+                </div>
+
+                <div class="col-sm-6 aboutright">
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- Procedure -->
+<section id="procedure">
+    <center>
+        <div class="content-box-sm">
+            <div class="container-fluid">
+
+                <div id="procedure-content">How it Works</div>
+
+                <div class="row">
+
+                    <div class="card col-sm-6" style="width: 50%;">
+                        <img class="cust-image" src="~/Content/images/home/download.png" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Download Free/Paid Notes</h4>
+                            <p class="card-text-1">Get Material for your</p>
+                            <p class="card-text-1">Cource etc.</p>
+                            <button  class="btn" onclick="@("window.location.href='" + @Url.Action("Search", "Home") + "'");">Download</button>
+                            
+                        </div>
+                    </div>
+
+                    <div class="card col-sm-6" style="width: 50%;">
+                        <img class="cust-image" src="~/Content/images/home/seller.png" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Seller</h4>
+                            <p class="card-text-1">Upload and Download Cource</p>
+                            <p class="card-text-1">and Materials etc.</p>
+                            <button class="btn"  onclick="@("window.location.href='" + @Url.Action("Dashboard", "Home") + "'");">sell book</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </center>
+
+</section>
+
+<!-- Customers -->
+<section id="customer-talks">
+
+    <div class="content-box-sm">
+        <div class="container">
+            <div class="customer-talks-content" style="text-align: center;">How our Customers are Saying</div>
+
+            <div class="box">
+                <div class="row">
+
+                    <!-- Customer-01 -->
+                    <div class="col-md-6" style="margin: 0px;">
+                        <div class="box-customers">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <img class="cust-image" src="~/Content/images/home/customer-1.png" alt="customers">
+                                </div>
+                                <div class="col-sm-8">
+                                    <p class="card-title">Walter Meller</p>
+                                    <p class="card-text-1">Founder & CEO, Matrix Group</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="card-text">"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer-02 -->
+                    <div class="col-md-6" style="margin: 0px;">
+                        <div class="box-customers">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <img class="cust-image" src="~/Content/images/home/customer-3.png" alt="customers">
+                                </div>
+                                <div class="col-sm-8">
+                                    <p class="card-title">Jonnie Riley</p>
+                                    <p class="card-text-1">Employee, Curious Snakcs</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="card-text">"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <!-- Customer-03 -->
+                    <div class="col-md-6" style="margin: 0px;">
+                        <div class="box-customers">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <img class="cust-image" src="~/Content/images/home/customer-2.png" alt="customers">
+                                </div>
+                                <div class="col-sm-8">
+                                    <p class="card-title">Amilia Luna</p>
+                                    <p class="card-text-1">Teacher, Saint Joseph High School</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="card-text">"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer-04 -->
+                    <div class="col-md-6 cust" style="margin: 0px;">
+                        <div class="box-customers">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <img class="cust-image" src="~/Content/images/home/customer-4.png" alt="customers">
+                                </div>
+                                <div class="col-sm-10">
+                                    <p class="card-title">Daniel Cardos</p>
+                                    <p class="card-text-1">Software Engineer, Infinitum Company</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="card-text">"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+

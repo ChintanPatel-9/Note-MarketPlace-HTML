@@ -1,0 +1,133 @@
+﻿@model IPagedList<NotesMarketplace.Models.DownloadRequests>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "BuyerRequests";
+    ViewBag.Role = 1;
+    Layout = "~/Views/Shared/Register.cshtml";
+}
+
+<section class="setfooter">
+    <br /><br /><br /><br />
+    <div class="outerbox">
+        <section id="dashboard-second-section" class="mydownload-margin">
+            <div class="container">
+                <div class="row top-table">
+
+
+
+
+
+                    <div class="container top-content box">
+                        <div class="dash">
+                            <span class="dashboard-content">Buyer Requests</span>
+                            <div class="right-nav">
+                                <div id="navbarSupportedContent">
+
+                                    <form class="form-inline ml-auto" style="float: right;">
+
+                                        <div class="dropdown show">
+
+                                            <div class="md-form my-0" style="display: inline;">
+                                                <input name="search" value="@Request.QueryString["search"]" class=" abcd form-control search-bar InputEmail1" placeholder="Search">
+                                                <input hidden name="pagindex" value="@Request.QueryString["pageindex"]" />
+                                                <input hidden name="shorthead" value="@Request.QueryString["shorthead"]" />
+                                            </div>
+
+                                            <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff;width:27%;"><i class="fa fa-search"></i> Search</button>
+
+                                        </div>
+
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="grid-table table-responsive-xl table-bordered table-hover ">
+                            <table class="table">
+                                <thead>
+                                    <tr style="cursor:default">
+                                        <th scope="col" id="table-shape" class="align-middle text-center">SR NO.</th>
+                                        <th scope="col" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("BuyerRequests","Home",new {shorthead="title",pageindex=Request.QueryString["pageindex"],seach=Request.QueryString["search"] })+"'");">NOTE TITLE</th>
+                                        <th scope="col" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("BuyerRequests","Home",new {shorthead="category",pageindex=Request.QueryString["pageindex"],seach=Request.QueryString["search"] })+"'");">CATEGORY</th>
+                                        <th scope="col" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("BuyerRequests","Home",new {shorthead="buyer",pageindex=Request.QueryString["pageindex"],seach=Request.QueryString["search"] })+"'");">BUYER</th>
+                                        <th scope="col" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("BuyerRequests","Home",new {shorthead="phonenumber",pageindex=Request.QueryString["pageindex"],seach=Request.QueryString["search"] })+"'");">PHONE NO.</th>
+                                        <th scope="col" id="table-shape" class="align-middle">SELL TYPE</th>
+                                        <th scope="col" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("BuyerRequests","Home",new {shorthead="price",pageindex=Request.QueryString["pageindex"],seach=Request.QueryString["search"] })+"'");">PRICE</th>
+                                        <th scope="col" id="table-shape" class="align-middle" onclick="@("window.location.href='" + @Url.Action("BuyerRequests","Home",new {shorthead="",pageindex=Request.QueryString["pageindex"],seach=Request.QueryString["search"] })+"'");">DOWNLOAD DATE/TIME</th>
+                                        <th scope="col" id="table-shape" class="align-middle"></th>
+                                        <th scope="col" class="align-middle"></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Count() == 0)
+                                    {
+                                        <tr> <td colspan="11" class="align-middle"> Records not found </td></tr>
+                                    }
+                                    @for (int i = 0; i < Model.Count(); i++)
+                                    {
+                                        NotesMarketplace.Models.DownloadRequests downloadedNote = Model[i];
+                                        <tr style="cursor:default">
+
+                                            <td class="align-middle text-center">@(i+1)</td>
+                                            <td class="align-middle getpurple">@downloadedNote.downloadedNote.Title</td>
+                                            <td class="align-middle">@downloadedNote.downloadedNote.Category</td>
+                                            <td class="align-middle">@downloadedNote.emailid</td>
+                                            <td class="align-middle">@downloadedNote.phonenumber</td>
+                                            <td class="align-middle">Paid</td>
+                                            <td class="align-middle">$@downloadedNote.downloadedNote.SellPrice</td>
+                                            <td class="align-middle">@downloadedNote.downloadedNote.CreatedDate</td>
+                                            <td class="align-middle">
+                                                <img class="dopointer" src="~/Content/images/Dashboard/eye.png" alt="view" onclick="@("window.location.href='" + @Url.Action("NoteDetails","Home",new {noteid=downloadedNote.downloadedNote.F_K_Note})+"'");">
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="dropdown">
+                                                    <a id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fa fa-ellipsis-v  dowhite"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink" style="text-align: center; font-family: Open Sans; font-size: 15px; font-weight: 400; line-height: normal; text-decoration: none; color: #333333;">
+                                                        <a class="dropdown-item" href="@Url.Action("AllowDownload","Home",new { did = downloadedNote.downloadedNote.ID})">Allow Download</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pagination -->
+        <section id="pagination">
+            <center>
+                @Html.PagedListPager(Model, pageindex => Url.Action("buyerRequests", "Home", new { pageindex }), new PagedList.Mvc.PagedListRenderOptions
+                {
+                    ContainerDivClasses = null,
+                    LiElementClasses = new string[] { "page-item1" },
+                    UlElementClasses = new string[] { "pagination justify-content-center" },
+                    LinkToNextPageFormat = "<i class='fa fa-chevron-right'></i>",
+                    LinkToPreviousPageFormat = "<i class='fa fa-chevron-left'></i>",
+                    MaximumPageNumbersToDisplay = 5,
+                    DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                    DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+                    DisplayLinkToLastPage = PagedListDisplayMode.Never
+
+                })
+            </center>
+        </section>
+    </div>
+</section>

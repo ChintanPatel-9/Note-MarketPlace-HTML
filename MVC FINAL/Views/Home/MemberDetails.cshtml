@@ -1,0 +1,219 @@
+﻿@model IEnumerable<NotesMarketplace.UserProfile>
+@{ ViewBag.Title = "Member Details";
+    ViewBag.Role = 2;
+    Layout = "~/Views/Shared/Register.cshtml";
+}
+@{ IEnumerable<UserProfile> _memberdetails = ViewData["memberdetails"] as IEnumerable<UserProfile>;
+    IEnumerable<NotesDetail> _notesdetails = ViewData["notes"] as IEnumerable<NotesDetail>;
+    }
+
+<section>
+    <br /><br /><br /><br /><br /><br />
+    <div class="container box" style="z-index: 999;">
+
+
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark indigo mb-4">
+            <!-- Navbar brand -->
+            <a class="dashboard-content" href="#">Member Details</a>
+        </nav>
+        <!--/.Navbar-->
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+
+        <div style="box-shadow: 0px 0.3px">
+
+            <div style="display: inline-block; margin: 5%; float: left;">
+                <div>
+                    @foreach (UserProfile _user in _memberdetails)
+                    {
+                        <img src="~/Uploads/ProfilePicture/@_user.ProfilePicture" style="margin: 10%;width:150px;height:150px">
+                    }
+
+                </div>
+            </div>
+
+            <div style="display: inline-block;margin: 5%;padding:1.5%;box-shadow: 0.3px 0px;">
+                <div>
+
+                    <form>
+
+
+                        @foreach (UserProfile _user in _memberdetails)
+                        {
+                            <div>
+                                <label style="display: inline-block;">First Name:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.User.FirstName</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">Last Name:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.User.LastName</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">Email:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.User.EmailId</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">DOB:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.DOB</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">Phone Number:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.PhoneNumber</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">Collage/University:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.College</label>
+                            </div>
+                        }
+
+
+                    </form>
+                </div>
+            </div>
+
+            <div style="display: inline-block;padding:1.5%;margin: 5%;">
+                <div>
+                    <form>
+
+
+                        @foreach (UserProfile _user in _memberdetails)
+                        {
+                            <div>
+                                <label style="display: inline-block;">Address 1:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.Address1</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">Address 2:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.Address2</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">City:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.City</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">State:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.State</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">Country:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.Country</label>
+                            </div>
+                            <div>
+                                <label style="display: inline-block;">Zip Code:</label>
+                                <label style="display: inline-block;color:#6255a5;">@_user.ZipCode</label>
+                            </div>
+                        }
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<br>
+<br>
+
+
+<!-- Dashboard - Brief-->
+<section>
+    <div class="container" style="z-index: 999;">
+
+
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark indigo mb-4">
+            <!-- Navbar brand -->
+            <a class="dashboard-content" href="#">Notes</a>
+        </nav>
+        <!--/.Navbar-->
+        </div>
+</section>
+
+
+
+<!-- In Progress Tables -->
+<section id="in-progress-table">
+    <div class="container">
+        <div class="row" style="margin: 0.7%;width: 100%">
+
+            <table class="table table-bordered table-hover" style="overflow-x: auto; overflow-y: hidden; width: 100%">
+
+                <thead>
+
+
+                    <tr style="text-align: center;">
+                        
+                        <th style="padding: 1.2%;border-right-style:hidden;text-align: center;">NOTE TITLE</th>
+                        <th style="padding: 1.2%;border-right-style:hidden;text-align: center;">CATEGORY</th>
+                        <th style="padding: 1.2%;border-right-style:hidden;text-align: center;">STATUS</th>
+                        <th style="padding: 1.2%;border-right-style:hidden;text-align: center;">DOWNLOADED NOTES</th>
+                        <th style="padding: 1.2%;border-right-style:hidden;text-align: center;">TOTAL EARNINGS</th>
+                        <th style="padding: 1.2%;border-right-style:hidden;text-align: center;">DATE ADDED</th>
+                        <th style="padding: 1.2%;text-align: center;">PUBLISHED DATE</th>
+
+                    </tr>
+
+                    @foreach (NotesDetail notesDetail in _notesdetails)
+                    {
+                <tr>
+
+                    <td style="padding: 1.2%;border-right-style:hidden;text-align: center;color: #6255a5;">@notesDetail.Title</td>
+                    <td style="padding: 1.2%;border-right-style:hidden;text-align: center;">@notesDetail.Category</td>
+
+                    @if (notesDetail.F_K_NoteStatus == 1)
+                    {
+                        <td style="padding: 1.2%;border-right-style:hidden;text-align: center;">Draft</td>
+                    }
+                    @if (notesDetail.F_K_NoteStatus == 2)
+                    {
+                        <td style="padding: 1.2%;border-right-style:hidden;text-align: center;">In Review</td>
+                    }
+                    @if (notesDetail.F_K_NoteStatus == 3)
+                    {
+                        <td style="padding: 1.2%;border-right-style:hidden;text-align: center;">Submitted</td>
+                    }
+                    @if (notesDetail.F_K_NoteStatus == 4)
+                    {
+                        <td style="padding: 1.2%;border-right-style:hidden;text-align: center;">Published</td>
+                    }
+                    @if (notesDetail.F_K_NoteStatus == 5)
+                    {
+                        <td style="padding: 1.2%;border-right-style:hidden;text-align: center;">Rejected</td>
+                    }
+                    @if (notesDetail.F_K_NoteStatus == 6)
+                    {
+                        <td style="padding: 1.2%;border-right-style:hidden;text-align: center;">UnPublished</td>
+                    }
+                    
+
+                    <td style="padding: 1.2%;border-right-style:hidden;text-align: center;">@notesDetail.User.DownloadedNotes.Where(m=>m.F_K_Note == notesDetail.P_K_Note).Count()</td>
+                    <td style="padding: 1.2%;border-right-style:hidden;text-align: center;">@notesDetail.User.DownloadedNotes.Where(m => m.F_K_Note == notesDetail.P_K_Note).Sum(m => m.SellPrice)</td>
+                    <td style="padding: 1.2%;text-align: center;border-right-style:hidden;word-spacing: 10px;">@notesDetail.CreatedDate</td>
+                    <td style="padding: 1.2%;text-align: center;word-spacing: 10px;">@notesDetail.CreatedDate
+                        <a href="@Url.Action("DownloadFile","Home",new { filename = notesDetail.NoteAttachment})"><i class="fa fa-ellipsis-v" style="border-right-style:hidden;margin-left:10px;color: #CAC5C8"></i></a>
+                    </td>
+
+                </tr>
+                    }
+
+
+                </thead>
+
+            </table>
+
+        </div>
+    </div>
+
+
+   
+
+</section>
+

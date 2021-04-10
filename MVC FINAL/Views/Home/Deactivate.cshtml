@@ -1,0 +1,40 @@
+﻿@model NotesMarketplace.User
+@{ ViewBag.Title = "Admin Members";
+    ViewBag.Role = 2;
+    Layout = "~/Views/Shared/Register.cshtml";
+}
+
+<div class="container">
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4 style="color:#6255a5">Deactivate User</h4>
+            <hr />
+
+
+            <div class="form-group">
+                
+                <div class="col-md-10">
+                    <div style="display:inline-block;overflow:auto;">
+                        <label> Deactivate </label>
+                    </div>
+                    <div class="checkbox" style="display:inline-block;margin-left:30px;margin-top:0px;">
+                        
+                        @Html.EditorFor(model => model.IsActive)
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<br />

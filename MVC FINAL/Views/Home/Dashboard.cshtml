@@ -1,0 +1,154 @@
+﻿@model IPagedList<NotesMarketplace.NotesDetail>
+    @using PagedList
+    @using PagedList.Mvc
+    @{
+        ViewBag.Title = "Dashboard";
+        ViewBag.Role = 1;
+        Layout = "~/Views/Shared/Register.cshtml";
+    }
+    @{ 
+        IEnumerable<NotesDetail> _note = ViewData["notedetails"] as IEnumerable<NotesDetail>;
+    }
+    <section class="setfooter">
+
+        <section id="dashboard-top">
+
+            <div class="container">
+
+                <br />
+                <!-- dashboard heading & add note button -->
+                <div class="container top-content box">
+                    <div class="dash">
+                        <span class="dashboard-content">Dashboard</span>
+                        <button class="btn btn-note right-nav" style="width:auto" onclick="@("window.location.href='" + @Url.Action("AddNotes", "Home") + "'");">ADD NOTE</button>
+                    </div>
+                </div>
+
+
+
+                @{ Statistic mystatistics = ViewBag.statistic; }
+
+                <!-- Dashboard content -->
+                <div class="dashboar-content">
+                    <div class="row">
+
+                        <div class="container">
+
+                            <div class="row" style="margin-left: 0.7%;">
+
+                                <table class="table table-bordered table-hover col-md-6 " style="width: 50%;">
+
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width:2%;padding: 2.5%;">
+                                                <center>
+                                                    <img class="earning-img" src="~/img/dashboard-earning.png">
+                                                    <p class="content">My Earning</p>
+                                                </center>
+                                            </th>
+                                            <th scope="col" style="width:10%">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <center>
+                                                            <h4>
+                                                                <b>
+                                                                    @mystatistics.SoldNotes
+                                                                </b>
+                                                            </h4>
+                                                            <p>Number of Notes Sold</p>
+                                                        </center>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <center>
+                                                            <h4>
+                                                                <b>
+                                                                    $
+                                                                    @mystatistics.TotalEarning
+                                                                </b>
+                                                            </h4>
+                                                            <p>Money Earned</p>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                </table>
+
+                                <table class="table table-bordered col-md-6" style="width: 15%; margin-left: 1%;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width: 2%; padding: 8.5%;">
+                                                <div>
+                                                    <center>
+                                                        <h4>
+                                                            <b>
+                                                               @mystatistics.DownloadedNotes
+                                                            </b>
+                                                        </h4>
+                                                        <p>My Downloads</p>
+                                                    </center>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+
+                                <table class="table table-bordered col-md-6" style="width: 15%; margin-left: 1%;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width: 2%; padding: 8.5%;">
+                                                <div>
+                                                    <center>
+                                                        <h4>
+                                                            <b>
+                                                                @mystatistics.RejectedNotes
+                                                            </b>
+                                                        </h4>
+                                                        <p>My Rejected Notes</p>
+                                                    </center>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+
+                                <table class="table table-bordered col-md-6" style="width: 15%; margin-left: 1%;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width: 2%; padding: 8.5%;">
+                                                <div>
+                                                    <center>
+                                                        <h4><b>@mystatistics.BuyerRequests</b></h4>
+                                                        <p>Buy Request</p>
+                                                    </center>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        @{
+            Html.RenderAction("InProgress", "Home");
+        }
+
+
+        @{
+            Html.RenderAction("Submitted", "Home");
+        }
+
+    </section>

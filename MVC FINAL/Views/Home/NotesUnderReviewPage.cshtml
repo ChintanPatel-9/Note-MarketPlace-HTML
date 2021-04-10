@@ -1,0 +1,92 @@
+﻿@model dynamic
+@{ ViewBag.Title = "Notes Under Review";
+    ViewBag.Role = 2;
+    Layout = "~/Views/Shared/Register.cshtml"; }
+
+@{
+    IEnumerable<User> user = ViewData["userdetails"] as IEnumerable<User>;
+    IEnumerable<NotesDetail> note = ViewData["notedetails"] as IEnumerable<NotesDetail>;
+}
+
+<section id="dashboard-second-section">
+    <br /><br /><br /><br /><br /><br />
+    <div class="container">
+        <form class="form-inline ml-auto">
+
+            <div class="dash">
+                <span class="dashboard-content">Under Review Notes</span>
+            </div>
+            <br />
+            <div class="md-form my-0" style="float:right">
+                <input name="search_progress" style="width:auto;" value="@Request.QueryString["search_progress"]" aria-describedby="null" class="abcd form-control search-bar InputEmail1" placeholder="Search">
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+
+                <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff; width:auto;"><i class="fa fa-search"></i> Search</button>
+
+            </div>
+
+        </form>
+
+
+        <div class="row">
+            <br /><br />
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table table-bordered table-hover ">
+                        <thead>
+                            <tr style="cursor:default">
+                                
+                                <th style="text-align:center"; scope="col" id="table-shape" class="align-middle">FIRST NAME</th>
+                                <th style="text-align:center"; scope="col" id="table-shape" class="align-middle">LAST NAME</th>
+                                <th style="text-align:center"; scope="col" id="table-shape" class="align-middle">EMAIL</th>
+                                <th style="text-align:center"; scope="col" id="table-shape" class="align-middle">NOTE TITLE</th>
+                                <th style="text-align:center"; scope="col" id="table-shape" class="align-middle">CATEGORY</th>
+                                <th style="text-align:center"; scope="col" id="table-shape" class="align-middle">SELLER</th>
+                                <th style="text-align:center"; scope="col" id="table-shape" class="align-middle">DATE ADDED</th>
+                                <th style="text-align:center"; scope="col" id="table-shape" class="align-middle">STATUS</th>
+                                <th style="text-align:center"; scope="col" class="align-middle">ACTION</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+
+                                @foreach (NotesDetail _notesDetail in note)
+                                {
+                                    foreach (User _user in user)
+                                    {
+                                        if (_user.P_K_User == _notesDetail.F_K_User)
+                                        {
+                                            <tr style="text-align:center">
+                                                <td class="align-middle" id="table-shape">@_user.FirstName</td>
+                                                <td class="align-middle" id="table-shape">@_user.LastName</td>
+                                                <td class="align-middle" id="table-shape">@_user.EmailId</td>
+                                                <td class="align-middle" id="table-shape">@_notesDetail.Title</td>
+                                                <td class="align-middle" id="table-shape">@_notesDetail.Category</td>
+                                                <td class="align-middle" id="table-shape">
+                                                    @_user.FirstName @_user.LastName
+                                                    <a href="@Url.Action("DownloadFile", "Home", new { filename = _notesDetail.NoteAttachment } )"><img src="~/images/eye.png" /></a>
+                                                </td>
+                                                <td class="align-middle" id="table-shape">@_notesDetail.CreatedDate</td>
+                                                <td class="align-middle" id="table-shape">UNDER REVIEW</td>
+                                                <td class="align-middle" style="width:23%;">
+                                                    <a class="btn" style="background-color:forestgreen;width:auto;color:white" href="@Url.Action("Approve","Home",new { noteid = _notesDetail.P_K_Note})">Approve</a>
+                                                    <a class="btn" style="background-color:red;width:auto;color:white" href="@Url.Action("Reject","Home",new { noteid = _notesDetail.P_K_Note})">Reject</a>
+                                                    <a class="btn" style="background-color:grey;width:auto;color:white" href="@Url.Action("InReview","Home",new { noteid = _notesDetail.P_K_Note})">InReview</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+
+                            </tr>
+
+                        </ tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

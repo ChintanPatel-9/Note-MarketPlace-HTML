@@ -1,0 +1,64 @@
+﻿@model NotesMarketplace.User
+
+@{ ViewBag.Title = "Add Admin";
+    if (ViewBag.IsValid == "true")
+    {
+        ViewBag.Role = 3;
+        Layout = "~/Views/Shared/Register.cshtml";
+        ViewBag.IsValid = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/Non_Register.cshtml";
+    } }
+
+
+<section>
+    <!-- First Section -->
+    <section>
+        <br /><br /><br />
+        <div id="user-profile-img">
+
+            <div>
+                <img src="~/img/banner-with-overlay.jpg" class="banner" style="height:300px">
+                <p class="content-img" style="top:35%">Add Administrator</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <br />
+        <form method="post" name="Registration" class="user-details-form">
+            <div class="form-group">
+                <label for="" exampleInputFirstName>First Name*</label>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control InputEmail1", @placeholder = "Enter your First Name", @maxlength = "50" })
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+
+            <div class="form-group">
+                <label for="" exampleInputLastName>Last Name*</label>
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control InputEmail1", @placeholder = "Enter your Last Name", @maxlength = "50" })
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address*</label>
+                @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control InputEmail1", @placeholder = "Enter your Email Address", @maxlength = "100" })
+                @Html.ValidationMessageFor(m => m.EmailId)
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Default Password*</label>
+                @Html.TextBoxFor(m => m.Password, new { @class = "form-control InputEmail1 InputPassword1 pe1", @placeholder = "Enter your Default password", @type = "password", @maxlength = "24", @minlength = "6" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+
+            <button class="btn" style="background-color:#6255a5; color:white;width:auto">ADD USER</button>
+
+        </form>
+        <br />
+    </div>
+
+
+</section>

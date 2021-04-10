@@ -1,0 +1,136 @@
+﻿@model IEnumerable<NotesMarketplace.User>
+@{ ViewBag.Title = "Admin Members";
+    ViewBag.Role = 2;
+    Layout = "~/Views/Shared/Register.cshtml";
+}
+
+
+<section id="dashboard-second-section">
+    <br /><br /><br /><br /><br /><br />
+    <div class="container">
+        <form class="form-inline ml-auto">
+
+            <div class="dash">
+                <span class="dashboard-content">MEMBERS</span>
+            </div>
+            <br />
+            <div class="md-form my-0" style="float:right">
+                <input name="search_progress" style="width:auto;" value="@Request.QueryString["search_progress"]" aria-describedby="null" class="abcd form-control search-bar InputEmail1" placeholder="Search">
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+                <input type="hidden" style="width:auto;" name="field" value="@Request.QueryString["field"]" />
+
+                <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit" style="display: inline; background-color: #6255a5; color: #fff; width:auto;"><i class="fa fa-search"></i> Search</button>
+
+            </div>
+
+        </form>
+
+
+        <div class="row">
+            <br /><br />
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table table-bordered table-hover ">
+                        <thead>
+                            <tr style="cursor:default;">
+                                <th style="text-align:center" scope="col" id="table-shape" class="align-middle">
+                                    FIRST NAME
+                                </th>
+                                <th style="text-align:center" scope="col" id="table-shape" class="align-middle">
+                                    LAST NAME
+                                </th>
+                                <th style="text-align:center" scope="col" id="table-shape" class="align-middle">
+                                    EMAIL
+                                </th>
+                                <th style="text-align:center" scope="col" id="table-shape" class="align-middle">
+                                    JOINING DATE
+                                </th>
+                                <th style="text-align:center" scope="col" id="table-shape" class="align-middle">
+                                    UNDER REVIEW NOTES
+                                </th>
+
+                                <th style="text-align:center" scope="col" id="table-shape" class="align-middle">
+                                    PUBLISHED NOTES
+                                </th>
+
+                                <th style="text-align:center" scope="col" id="table-shape" class="align-middle">
+                                    DOWNLOADED NOTES
+                                </th>
+
+                                <th style="text-align:center" scope="col" id="table-shape" class="align-middle">
+                                    TOTAL EXPANSIS
+                                </th>
+
+                                <th style="text-align:center" scope="col" class="align-middle">
+                                    TOTAL EARNINGS
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <br />
+
+                            @if (Model.Count() == 0)
+                            {
+                                <tr> <td colspan="5" class="align-middle"> Records not found </td></tr>
+                            }
+
+                            @foreach (var item in Model)
+                            {
+                                <tr style="text-align:center">
+
+                                    <td class="align-middle" id="table-shape">
+                                        @Html.DisplayFor(modelItem => item.FirstName)
+                                    </td>
+                                    <td class="align-middle" id="table-shape">
+                                        @Html.DisplayFor(modelItem => item.LastName)
+                                    </td>
+                                    <td class="align-middle" id="table-shape">
+                                        @Html.DisplayFor(modelItem => item.EmailId)
+                                    </td>
+                                    <td class="align-middle" id="table-shape">
+                                        @Html.DisplayFor(modelItem => item.CreaatedDate)
+                                    </td>
+
+                                    @{ var k = "/Home/BasicNoteDetails?id=" + item.P_K_User;}
+                                    <td class="align-middle" id="table-shape"> <a href=@k title="Show Notes Under Review"> @item.NotesDetails.Where(n => n.F_K_NoteStatus == 2 && n.IsActive == true).Count() </a> </td>
+
+                                    @{ var l = "/Home/BasicNoteDetails?id=" + item.P_K_User;}
+                                    <td class="align-middle" id="table-shape"> <a href=@l title="Show Notes Published"> @item.NotesDetails.Where(n => n.F_K_NoteStatus == 4 && n.IsActive == true).Count() </a> </td>
+
+                                    @{ var h = "/Home/BasicNoteDetails?id=" + item.P_K_User;}
+                                    <td class="align-middle" id="table-shape"> <a href=@h title="Show Notes Downloaded"> @item.NotesDetails.Where(n => n.IsActive == true).Count() </a> </td>
+
+                                    @{ var q = "/Home/BasicNoteDetails?id=" + item.P_K_User;}
+                                    <td class="align-middle" id="table-shape"> <a href=@q title="Show Notes Total Exapnsis">$ @item.NotesDetails.Where(n => n.IsActive == true).ToList().Sum(m => m.SellPrice) </a> </td>
+
+                                    @{ var p = "/Home/BasicNoteDetails?id=" + item.P_K_User;}
+                                    <td class="align-middle">
+                                        <a href=@p title="Show Notes Total Earning">$ @item.DownloadedNotes.Where(m => m.IsActive && m.IsApproved == true).ToList().Sum(m => m.SellPrice) </a>
+
+                                        <div class="dropdown d-inline">
+                                            <span class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <img src="~/images/dots.png" / style="margin-left:10%;width:auto;height:auto;">
+                                            </span>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="@Url.Action("MemberDetails","Home",new { usrid = item.P_K_User})">View Member Details</a><br />
+                                                <a class="dropdown-item" href="@Url.Action("Deactivate","Home",new { usrid = item.P_K_User})">Deactivate</a>
+                                            </div>
+                                        </div>
+                                    </td>
+
+
+                                </tr>
+
+                            }
+
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br /><br />
+</section>
