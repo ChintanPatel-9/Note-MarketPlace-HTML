@@ -1,0 +1,674 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- important meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>@ViewBag.Title</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon/favicon.ico")">
+
+
+    <!-- Google Fonts -->
+    <link href="@Url.Content("https://fonts.googleapis.com/css2?family=Open+Sans:s@300;400;600;700&display=swap")" rel="stylesheet">
+
+    <link href="~/Content/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    @Styles.Render("~/Content/bootstrap.min.css")
+
+    <!-- Custome CSS -->
+
+    @Styles.Render("~/Content/Site.css?version=1")
+
+    <!-- Responsive CSS -->
+    @Styles.Render("~/Content/css/responsive.css")
+
+
+
+</head>
+
+<body data-target=".navbar">
+
+    <!-- Header -->
+    
+
+        <!-- Viewbag role 1 -->
+        @{ if (ViewBag.Role == 1)
+            {
+                if (ViewBag.HomePage == "true")
+                {
+
+                    <header class="site-header">
+                        <div class="header-wrapper">
+                            <div class="logo-wrapper" style="display:inline-block;">
+
+                                <!-- Logo -->
+                                <a href="#" title="Site Logo" class="navbar-brand">
+                                    <img src="~/img/logo.png" id="logo">
+                                </a>
+
+                            </div>
+
+                            <!-- Main Menu bar -->
+                            <div class="navigation-wrapper" style="display:inline-block;">
+                                <nav class="main-nav">
+                                    <ul class="menu-navigation">
+                                        <li>
+                                            @Html.ActionLink("Search Notes", "Search", "Home", null, new { @class = "nav-link word-color" })
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Sell Your Notes", "Dashboard", "Home", null, new { @class = "nav-link word-color" })
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Buyer Requests", "BuyerRequests", "Home", null, new { @class = "nav-link word-color" })
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("FAQ", "FAQ", "Home", null, new { @class = "nav-link word-color" })
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "nav-link word-color" })
+                                        </li>
+                                        <li>
+                                            @{ if (ViewBag.ProfilePicture != null)
+                                                {
+
+                                                    <div class="dropdown show">
+                                                        <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <img class="profile-img" style="border-radius:50px; width:30px; height:30px;" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                        </a>
+
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="#">My Downloads</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="#">My Sold Notes</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="#">My Rejected Notes</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="#">Change Password</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                        </div>
+                                                    </div> 
+
+                                                }
+                                            else
+                                                {
+
+                                                    <div class="dropdown show">
+                                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <img class="profile-img" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                        </a>
+
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="#">My Downloads</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="#">My Sold Notes</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="#">My Rejected Notes</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="#">Change Password</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                        </div>
+                                                    </div> 
+                                                } 
+                                            }
+
+                                        </li>
+
+                                        <li>
+                                            @Html.ActionLink("Logout", "LogOut", "Home", null, new { @class = "btn btn-primary nav-link", @id = "mynavbtn", @role = "button" })
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </div>
+                    </header> 
+                }
+
+                else
+                {
+                    <header class="site-header">
+                        <div class="header-wrapper">
+                            <div class="logo-wrapper" style="display:inline-block;">
+
+                                <!-- Logo -->
+                                <a href="#" title="Site Logo" class="navbar-brand">
+                                    <img src="~/img/logo.png" id="logo">
+                                </a>
+
+                            </div>
+
+                            <!-- Main Menu bar -->
+                            <div class="navigation-wrapper" style="display:inline-block;">
+                                <nav class="main-nav">
+                                    <ul class="menu-navigation">
+                                        <li>
+                                            @Html.ActionLink("Search Notes 1", "Search", "Home", null, new { @class = "nav-link" })
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Sell Your Notes", "Dashboard", "Home", null, new { @class = "nav-link" })
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Buyer Requests", "BuyerRequests", "Home", null, new { @class = "nav-link" })
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("FAQ", "FAQ", "Home", null, new { @class = "nav-link" })
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "nav-link" })
+                                        </li>
+                                        <li>
+                                            @{ if (ViewBag.ProfilePicture != null)
+                                                {
+
+                                                    <div class="dropdown show">
+                                                        <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <img class="profile-img" style="border-radius:50px; width:30px; height:30px;" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                        </a>
+
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="#">My Downloads</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="#">My Sold Notes</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="#">My Rejected Notes</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="#">Change Password</a><br />
+                                                            <a class="dropdown-item" style="font-weight: 400; margin:5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                        </div>
+                                                    </div> 
+                                                }
+                                                else
+                                                {
+
+                                                    <div class="dropdown show">
+                                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <img class="profile-img" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                        </a>
+
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="#">My Downloads</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="#">My Sold Notes</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="#">My Rejected Notes</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="#">Change Password</a>
+                                                            <a class="dropdown-item" style="font-weight: 400; margin: 5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                        </div>
+                                                    </div> } }
+
+                                        </li>
+
+                                        <li>
+                                            @Html.ActionLink("Logout", "LogOut", "Home", null, new { @class = "btn btn-primary nav-link", @id = "mynavbtn", @role = "button" })
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </div>
+                    </header> 
+                }
+
+
+            }
+
+            <!-- Super Admin -->
+            if (ViewBag.Role == 3)
+            {
+                if (ViewBag.HomePage == "true")
+                {
+
+                    <header class="site-header">
+                            <div class="header-wrapper">
+
+                                <div class="logo-wrapper" style="display:inline-block;">
+
+                                    <!-- Logo -->
+                                    <a href="#" title="Site Logo" class="navbar-brand">
+                                        <img src="~/img/logo.png" id="logo">
+                                    </a>
+
+                                </div>
+
+                                <!-- Main Menu bar -->
+                                <div class="navigation-wrapper" style="display:inline-block;">
+                                    <nav class="main-nav">
+                                        <ul style="margin-right:10px;" class="menu-navigation">
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Dashboard", "AdminDashboard", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+
+                                                <div class="dropdown show">
+                                                    <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="nav-link word-color">Notes</div>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("NotesUnderReviewPage", "Home")">Notes Under Review</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("PublishedNotesPage", "Home")">Published Notes</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("DownloadedNotesPage", "Home")">Downloaded Notes</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("RejectedNotesPage", "Home")">Rejected Notes</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Members", "AdminMembers", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Reports", "SpamReports", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                <div class="dropdown show">
+                                                    <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="nav-link word-color">Settings</div>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageSystemConfigPage", "Home")">Manage Sysytem Config.</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageAdminPage", "Home")">Manage Administrator</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageCategoryPage", "Home")">Manage Category</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageTypePage", "Home")">Manage Type</a>
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageCountryPage", "Home")">Manage Country</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @{ if (ViewBag.ProfilePicture != null)
+                                                    {
+
+                                                        <div class="dropdown show">
+                                                            <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <img class="profile-img" style="border-radius:50px; width:30px; height:30px;" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                            </a>
+
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a><br />
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ChangePassword", "Home")">Change Password</a><br />
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                            </div>
+                                                        </div> 
+                                                    }
+                                                 else
+                                                    {
+
+                                                        <div class="dropdown show">
+                                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <img class="profile-img" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                            </a>
+
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a>
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("Change Password", "Home")">Change Password</a>
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                            </div>
+                                                        </div> } }
+
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Logout", "LogOut", "Home", null, new { @class = "btn btn-primary nav-link", @id = "mynavbtn", @role = "button" })
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+                            </div>
+                        </header>
+                }
+
+                else
+                {
+                    <header class="site-header">
+                            <div class="header-wrapper">
+
+                                <div class="logo-wrapper" style="display:inline-block;">
+
+                                    <!-- Logo -->
+                                    <a href="#" title="Site Logo" class="navbar-brand">
+                                        <img src="~/img/logo.png" id="logo">
+                                    </a>
+
+                                </div>
+
+                                <!-- Main Menu bar -->
+                                <div class="navigation-wrapper" style="display:inline-block;">
+                                    <nav class="main-nav">
+                                        <ul style="margin-right:10px;" class="menu-navigation">
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Dashboard", "AdminDashboard", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+
+                                                <div class="dropdown show">
+                                                    <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="nav-link word-color">Notes</div>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("NotesUnderReviewPage", "Home")">Notes Under Review</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("PublishedNotesPage", "Home")">Published Notes</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("DownloadedNotesPage", "Home")">Downloaded Notes</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("RejectedNotesPage", "Home")">Rejected Notes</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Members", "AdminMembers", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Reports", "SpamReports", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                <div class="dropdown show">
+                                                    <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="nav-link word-color">Settings</div>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageSystemConfigPage", "Home")">Manage Sysytem Config.</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageAdminPage", "Home")">Manage Administrator</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageCategoryPage", "Home")">Manage Category</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageTypePage", "Home")">Manage Type</a>
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageCountryPage", "Home")">Manage Country</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @{ if (ViewBag.ProfilePicture != null)
+                                                    {
+
+                                                        <div class="dropdown show">
+                                                            <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <img class="profile-img" style="border-radius:50px; width:30px; height:30px;" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                            </a>
+
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a><br />
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ChangePassword", "Home")">Change Password</a><br />
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                            </div>
+                                                        </div> 
+                                                    }
+                                                 else
+                                                    {
+
+                                                        <div class="dropdown show">
+                                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <img class="profile-img" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                            </a>
+
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a>
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("Change Password", "Home")">Change Password</a>
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                            </div>
+                                                        </div> } }
+
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Logout", "LogOut", "Home", null, new { @class = "btn btn-primary nav-link", @id = "mynavbtn", @role = "button" })
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+                            </div>
+                        </header> 
+                }
+
+
+            }
+
+            
+            if(ViewBag.Role == 2)
+            {  
+                    <!-- Admin -->
+                  if (ViewBag.HomePage == "true")
+                    {
+
+                        <header class="site-header">
+                            <div class="header-wrapper">
+
+                                <div class="logo-wrapper" style="display:inline-block;">
+
+                                    <!-- Logo -->
+                                    <a href="#" title="Site Logo" class="navbar-brand">
+                                        <img src="~/img/logo.png" id="logo">
+                                    </a>
+
+                                </div>
+
+                                <!-- Main Menu bar -->
+                                <div class="navigation-wrapper" style="display:inline-block;">
+                                    <nav class="main-nav">
+                                        <ul style="margin-right:10px;" class="menu-navigation">
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Dashboard", "AdminDashboard", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+
+                                                <div class="dropdown show">
+                                                    <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="nav-link word-color">Notes</div>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("NotesUnderReviewPage", "Home")">Notes Under Review</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("PublishedNotesPage", "Home")">Published Notes</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("DownloadedNotesPage", "Home")">Downloaded Notes</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("RejectedNotesPage", "Home")">Rejected Notes</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Members", "AdminMembers", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Reports", "SpamReports", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                <div class="dropdown show">
+                                                    <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="nav-link word-color">Settings</div>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageSystemConfigPage", "Home")">Manage Sysytem Config.</a><br />
+                                                        
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageCategoryPage", "Home")">Manage Category</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageTypePage", "Home")">Manage Type</a>
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageCountryPage", "Home")">Manage Country</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @{ if (ViewBag.ProfilePicture != null)
+                                                    {
+
+                                                        <div class="dropdown show">
+                                                            <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <img class="profile-img" style="border-radius:50px; width:30px; height:30px;" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                            </a>
+
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a><br />
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ChangePassword", "Home")">Change Password</a><br />
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                            </div>
+                                                        </div> 
+                                                    }
+                                                 else
+                                                    {
+
+                                                        <div class="dropdown show">
+                                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <img class="profile-img" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                            </a>
+
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a>
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("Change Password", "Home")">Change Password</a>
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                            </div>
+                                                        </div> } }
+
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Logout", "LogOut", "Home", null, new { @class = "btn btn-primary nav-link", @id = "mynavbtn", @role = "button" })
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+                            </div>
+                        </header>
+                    }
+
+                    else
+                    {
+                        <header class="site-header">
+                            <div class="header-wrapper">
+                                <div class="logo-wrapper" style="display:inline-block;">
+
+                                    <!-- Logo -->
+                                    <a href="#" title="Site Logo" class="navbar-brand">
+                                        <img src="~/img/logo.png" id="logo">
+                                    </a>
+
+                                </div>
+
+                                <!-- Main Menu bar -->
+                                <div class="navigation-wrapper" style="display:inline-block;">
+                                    <nav class="main-nav">
+                                        <ul class="menu-navigation">
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Dashboard", "AdminDashboard", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+                       
+                              
+                                                <div class="dropdown show">
+                                                    <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="nav-link word-color">Notes</div>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("NotesUnderReviewPage", "Home")">Notes Under Review</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("PublishedNotesPage", "Home")">Published Notes</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("DownloadedNotesPage", "Home")">Downloaded Notes</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("RejectedNotesPage", "Home")">Rejected Notes</a>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Members", "AdminMembers", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                @Html.ActionLink("Reports", "SpamReports", "Home", null, new { @class = "nav-link word-color" })
+                                            </li>
+                                            <li style="margin-right:20px;">
+                                                <div class="dropdown show">
+                                                    <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="nav-link word-color">Settings</div>
+                                                    </a>
+
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageSystemConfigPage", "Home")">Manage Sysytem Config.</a><br />
+                                                        
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageCategoryPage", "Home")">Manage Category</a><br />
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageTypePage", "Home")">Manage Type</a>
+                                                        <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ManageCountryPage", "Home")">Manage Country</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                @{ if (ViewBag.ProfilePicture != null)
+                                                    {
+
+                                                        <div class="dropdown show">
+                                                            <a class="btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <img class="profile-img" style="border-radius:50px; width:30px; height:30px;" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                            </a>
+
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a><br />
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%;" href="@Url.Action("ChangePassword", "Home")">Change Password</a><br />
+                                                                <a class="dropdown-item" style="font-weight: 400; margin:5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                            </div>
+                                                        </div> }
+                                                    else
+                                                    {
+
+                                                        <div class="dropdown show">
+                                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <img class="profile-img" src="~/Uploads/ProfilePicture/@ViewBag.ProfilePicture">
+                                                            </a>
+                       
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("UserProfile", "Home")">User Profile</a>
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%;" href="@Url.Action("ChangePassword", "Home")">Change Password</a>
+                                                                <a class="dropdown-item" style="font-weight: 400; margin: 5%; color: #6255a5;" href="@Url.Action("LogOut", "Home")">LOGOUT</a>
+                                                            </div>
+                                                        </div> } }
+
+                                            </li>
+
+                                            <li>
+                                                @Html.ActionLink("Logout", "LogOut", "Home", null, new { @class = "btn btn-primary nav-link", @id = "mynavbtn", @role = "button" })
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+                            </div>
+                        </header> 
+                    }
+
+            } }
+
+
+    <!-- Header Ends -->
+
+    @RenderBody()
+    <!-- Footer  -->
+    <footer>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-6" style="margin-left: 5%;">
+                    <p>
+                        Copyright &copy; Tatvasoft All rights reserved.
+                    </p>
+                </div>
+                <div style="text-align: right; margin-right:5%; ">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Back To Top -->
+        <a href="#home" id="back-to-top" class="btn btn-sm btn-yellow btn-back-to-top smooth-scroll col-md-12 hidden-sm hidden-xs" title="home" role="button">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+    </footer>
+    <!-- Footer Ends -->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/popper.min.js")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+    @Scripts.Render("~/bundles/myscript")
+
+</body>
+</html>
+
+

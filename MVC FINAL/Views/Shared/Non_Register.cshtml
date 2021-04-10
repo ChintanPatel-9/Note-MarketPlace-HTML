@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- important meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>@ViewBag.Title</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon/favicon.ico")">
+
+
+    <!-- Google Fonts -->
+    <link href="@Url.Content("https://fonts.googleapis.com/css2?family=Open+Sans:s@300;400;600;700&display=swap")" rel="stylesheet">
+
+    <link href="~/Content/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    @Styles.Render("~/Content/bootstrap.min.css")
+
+    <!-- Custome CSS -->
+
+
+    @Styles.Render("~/Content/Site.css?version=1")
+
+    <!-- Responsive CSS -->
+    @Styles.Render("~/Content/css/responsive.css")
+
+
+</head>
+
+<body data-target=".navbar">
+
+    <!-- Header -->
+
+    @{ if (ViewBag.HomePage == "true")
+        {
+            <header class="site-header">
+                <div class="header-wrapper">
+                    <div class="logo-wrapper">
+
+                        <!-- Logo -->
+                        <a href="#" title="Site Logo" class="navbar-brand">
+                            <img src="~/img/logo.png" id="logo">
+                        </a>
+
+                    </div>
+
+                    <!-- Main Menu bar -->
+                    <div class="navigation-wrapper">
+                        <nav class="main-nav">
+                            <ul  class="menu-navigation" style="background-color:transparent;">
+                                <li>
+                                    @Html.ActionLink("Search Notes", "Search", "Home", null, new { @class = "nav-link word-color" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Sell Your Notes", "Dashboard", "Home", null, new { @class = "nav-link word-color" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("FAQ", "FAQ", "Home", null, new { @class = "nav-link word-color" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "nav-link word-color" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Login", "Login", "Home", null, new { @class = "btn btn-primary" })
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </header> 
+        }
+        else
+        {
+            <header class="site-header">
+                <div class="header-wrapper">
+                    <div class="logo-wrapper">
+
+                        <!-- Logo -->
+                        <a href="#" title="Site Logo" class="navbar-brand">
+                            <img src="~/img/logo.png" id="logo">
+                        </a>
+
+                    </div>
+
+                    <!-- Main Menu bar -->
+                    <div class="navigation-wrapper">
+                        <nav class="main-nav">
+                            <ul class="menu-navigation">
+                                <li>
+                                    @Html.ActionLink("Search Notes", "Search", "Home", null, new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Sell Your Notes", "Dashboard", "Home", null, new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("FAQ", "FAQ", "Home", null, new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Login", "Login", "Home", null, new { @class = "nav-button" })
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </header> 
+        }
+        }
+    <!-- Header Ends -->
+
+    @RenderBody()
+
+    <!-- Footer  -->
+    <footer>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-6" style="margin-left: 5%;">
+                    <p>
+                        Copyright &copy; Tatvasoft All rights reserved.</span>
+                    </p>
+                </div>
+                <div style="text-align: right; margin-right:5%; ">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Back To Top -->
+        <a href="#home" id="back-to-top" class="btn btn-sm btn-yellow btn-back-to-top smooth-scroll col-md-12 hidden-sm hidden-xs" title="home" role="button">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+    </footer>
+    <!-- Footer Ends -->
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @Scripts.Render("~/bundles/myscript")
+
+</body>
+</html>
